@@ -8,10 +8,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
-    <artifactId>gru-module-grusupply-openam</artifactId>
+    <artifactId>module-supply-openam</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Lutece GRU Supply OpenAM</name>
+    <name>Lutece Module Supply OpenAM</name>
     
     <repositories>
         <repository>
@@ -49,7 +49,7 @@
         
           <dependency>
 		<groupId>fr.paris.lutece.plugins</groupId>
-		<artifactId>gru-plugin-grusupply</artifactId>
+		<artifactId>plugin-grusupply</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
@@ -60,13 +60,15 @@
 		<version>1.0.1-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
+      
     </dependencies>
 	
     <properties>
-        <componentName>Module GRU Supply OpenAM</componentName>
+        <componentName>Module Supply OpenAM</componentName>
         <jiraProjectName>GRUOPENAM</jiraProjectName>
         <jiraComponentId>12931</jiraComponentId>
     </properties>
+ 
 	
     <scm>
         <connection>scm:git:https://github.com/lutece-secteur-public/gru-module-grusupply-openam.git</connection>

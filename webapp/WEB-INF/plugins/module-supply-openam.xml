@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
     <!-- Plugin Informations -->
-    <name>gru-openam</name>
+    <name>module-supply-openam</name>
     <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
     <version>1.0.0-SNAPSHOT</version>
     <documentation/>
     <installation/>
     <changes/>
     <user-guide/>
-    <description>module.gru.openam.module.description</description>
-    <provider>module.gru.openam.module.provider</provider>
+    <description>module.supply.openam.module.description</description>
+    <provider>module.supply.openam.module.provider</provider>
     <provider-url>http://lutece.paris.fr</provider-url>
-    <icon-url>images/admin/skin/plugins/gru/modules/openam/gru-openam.png</icon-url>
+    <icon-url>images/admin/skin/plugins/modules/supply/openam/openam.png</icon-url>
     <copyright>Copyright 2001-2015 Mairie de Paris</copyright>
     <core-version-dependency>
         <min-core-version>5.1.0</min-core-version>
