@@ -33,9 +33,8 @@
  */
 package fr.paris.lutece.plugins.supply.modules.openam;
 
+import fr.paris.lutece.plugins.grusupply.business.dto.UserDTO;
 import fr.paris.lutece.plugins.supply.modules.openam.services.OpenAmService;
-import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
-import fr.paris.lutece.portal.service.spring.SpringContextService;
 import fr.paris.lutece.portal.service.util.AppLogService;
 import fr.paris.lutece.test.LuteceTestCase;
 import static junit.framework.TestCase.assertEquals;
@@ -43,9 +42,6 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * This class is the main test suite for the package fr.paris.lutece.plugins.crm
  */
-
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:gru-grusupply-openam_context")
 public class OpenAmServiceTest extends LuteceTestCase
 {
     /**
@@ -64,33 +60,8 @@ public class OpenAmServiceTest extends LuteceTestCase
         AppLogService.info( "Test OpenAmServiceTest : testService" );
 
         OpenAmService oService = new OpenAmService(  );
-        Identity oidentity = (Identity) oService.getUserInfo( _UserGuid );
+        UserDTO oUser = (UserDTO) oService.getUserInfo( _UserGuid );
 
-        assertEquals( oidentity.getFirstname(  ), _Firstname );
+        assertEquals( oUser.getFirstname(  ), _Firstname );
     }
-
-    //    
-    //    public static Test suite(  )
-    //    {
-    //        
-    //     
-    //       // 
-    //
-    //        
-    //        
-    ////        Identity oIdentity = (Identity)oService.getUserInfo(_UserGuid);
-    ////        
-    ////        AppLogService.info("\n\n\n\n\n INFO \n\n\n\n");
-    ////        AppLogService.info(oIdentity.getFirstname());
-    ////        AppLogService.info(oIdentity.getLastname());
-    ////           AppLogService.info("\n\n\n\n\n Ens INFO \n\n\n\n");
-    ////        //$JUnit-BEGIN$
-    ////      //  suite.addTest( new TestSuite( CategoryTest.class ) );
-    ////    
-    ////            
-    ////               assertEquals( oIdentity.getLastname(), _Lastname );
-    //
-    //        //$JUnit-END$
-    //        return suite;
-    //    }
 }

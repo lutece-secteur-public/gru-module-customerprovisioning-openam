@@ -33,6 +33,7 @@
  */
 package fr.paris.lutece.plugins.supply.modules.openam.services;
 
+import fr.paris.lutece.plugins.grusupply.business.dto.UserDTO;
 import fr.paris.lutece.plugins.grusupply.service.IUserInfoProvider;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
 import fr.paris.lutece.plugins.openamidentityclient.service.IOpenamIdentityService;
@@ -50,24 +51,50 @@ public class OpenAmService implements IUserInfoProvider
     private static final IOpenamIdentityService _OpenAmIdentityService = OpenamIdentityService.getService(  );
 
     /**
-     * 
+     *
      * @param guid
-     * @return 
+     * @return UserDTO else null
      */
     @Override
-    public Object getUserInfo( String guid )
+    public UserDTO getUserInfo( String guid )
     {
         Identity oIdentity = null;
+        UserDTO oIUserDTO = null;
 
         try
         {
             oIdentity = _OpenAmIdentityService.getIdentity( guid );
+
+            if ( oIdentity != null )
+            {
+                oIUserDTO = populateIdentityAndUserDTO( oIdentity );
+            }
         }
         catch ( OpenamIdentityException ex )
         {
             AppLogService.info( ex.getStackTrace(  ) );
         }
 
-        return oIdentity;
+        return oIUserDTO;
+    }
+
+    private UserDTO populateIdentityAndUserDTO( Identity oIdentity )
+    {
+        UserDTO oIUserDTO = new UserDTO(  );
+
+        oIUserDTO.setBirthday( oIdentity.getBirthday(  ) );
+        oIUserDTO.setCity( oIdentity.getCity(  ) );
+        oIUserDTO.setCityOfBirth( oIdentity.getCityOfBirth(  ) );
+        oIUserDTO.setCivility( oIdentity.getCivility(  ) );
+        // oIUserDTO.setEmail( oIdentity.get );
+        oIUserDTO.setFirstname( oIdentity.getFirstname(  ) );
+        oIUserDTO.setLastname( oIdentity.getLastname(  ) );
+        oIUserDTO.setPostalCode( oIdentity.getPostalCode(  ) );
+        oIUserDTO.setStayConnected( oIdentity.getStayConnected(  ) );
+        oIUserDTO.setStreet( oIdentity.getStreet(  ) );
+        oIUserDTO.setTelephoneNumber( oIdentity.getTelephoneNumber(  ) );
+        oIUserDTO.setUid( oIdentity.getUid(  ) );
+
+        return oIUserDTO;
     }
 }
