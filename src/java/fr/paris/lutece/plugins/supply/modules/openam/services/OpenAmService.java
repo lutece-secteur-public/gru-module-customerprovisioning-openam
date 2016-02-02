@@ -37,7 +37,6 @@ import fr.paris.lutece.plugins.grusupply.business.dto.UserDTO;
 import fr.paris.lutece.plugins.grusupply.service.IUserInfoProvider;
 import fr.paris.lutece.plugins.openamidentityclient.business.Account;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
-import fr.paris.lutece.plugins.openamidentityclient.service.IOpenamIdentityService;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityException;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityService;
 import fr.paris.lutece.portal.service.util.AppLogService;
@@ -45,31 +44,30 @@ import fr.paris.lutece.portal.service.util.AppLogService;
 
 /**
  *
- * @author root
+ * OpenAmService service link GRU SUpply and open AM
  */
 public class OpenAmService implements IUserInfoProvider
 {
-   private static final IOpenamIdentityService _OpenAmIdentityService = OpenamIdentityService.getService(  );
     /**
      *
-     * @param guid to make request
+     * @param strguid to make request
      * @return UserDTO else null
      */
     @Override
-    public UserDTO getUserInfo( String guid )
+    public UserDTO getUserInfo( String strguid )
     {
-        Identity oIdentity ;
-        Account oAccount ;
+        Identity oIdentity;
+        Account oAccount;
         UserDTO oIUserDTO = null;
 
         try
-        { 
-            oIdentity = OpenamIdentityService.getService(  ).getIdentity( guid );
-           oAccount = OpenamIdentityService.getService(  ).getAccount(guid );
+        {
+            oIdentity = OpenamIdentityService.getService(  ).getIdentity( strguid );
+            oAccount = OpenamIdentityService.getService(  ).getAccount( strguid );
 
-            if ( oIdentity != null && oAccount!=null )
+            if ( ( oIdentity != null ) && ( oAccount != null ) )
             {
-                oIUserDTO = populateIdentityAndUserDTO( oIdentity , oAccount);
+                oIUserDTO = populateIdentityAndUserDTO( oIdentity, oAccount );
             }
         }
         catch ( OpenamIdentityException ex )
@@ -88,12 +86,11 @@ public class OpenAmService implements IUserInfoProvider
     private UserDTO populateIdentityAndUserDTO( Identity oIdentity, Account oAccount )
     {
         UserDTO oIUserDTO = new UserDTO(  );
-
         oIUserDTO.setBirthday( oIdentity.getBirthday(  ) );
         oIUserDTO.setCity( oIdentity.getCity(  ) );
         oIUserDTO.setCityOfBirth( oIdentity.getCityOfBirth(  ) );
         oIUserDTO.setCivility( oIdentity.getCivility(  ) );
-        oIUserDTO.setEmail( oAccount.getLogin() );
+        oIUserDTO.setEmail( oAccount.getLogin(  ) );
         oIUserDTO.setFirstname( oIdentity.getFirstname(  ) );
         oIUserDTO.setLastname( oIdentity.getLastname(  ) );
         oIUserDTO.setPostalCode( oIdentity.getPostalCode(  ) );
