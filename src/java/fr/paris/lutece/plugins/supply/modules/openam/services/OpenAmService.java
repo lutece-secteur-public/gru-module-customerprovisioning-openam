@@ -35,6 +35,7 @@ package fr.paris.lutece.plugins.supply.modules.openam.services;
 
 import fr.paris.lutece.plugins.grusupply.business.dto.UserDTO;
 import fr.paris.lutece.plugins.grusupply.service.IUserInfoProvider;
+import fr.paris.lutece.plugins.openamidentityclient.business.Account;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
 import fr.paris.lutece.plugins.openamidentityclient.service.IOpenamIdentityService;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityException;
@@ -48,26 +49,27 @@ import fr.paris.lutece.portal.service.util.AppLogService;
  */
 public class OpenAmService implements IUserInfoProvider
 {
-    private static final IOpenamIdentityService _OpenAmIdentityService = OpenamIdentityService.getService(  );
-
+   private static final IOpenamIdentityService _OpenAmIdentityService = OpenamIdentityService.getService(  );
     /**
      *
-     * @param guid
+     * @param guid to make request
      * @return UserDTO else null
      */
     @Override
     public UserDTO getUserInfo( String guid )
     {
-        Identity oIdentity = null;
+        Identity oIdentity ;
+        Account oAccount ;
         UserDTO oIUserDTO = null;
 
         try
-        {
-            oIdentity = _OpenAmIdentityService.getIdentity( guid );
+        { 
+            oIdentity = OpenamIdentityService.getService(  ).getIdentity( guid );
+           oAccount = OpenamIdentityService.getService(  ).getAccount(guid );
 
-            if ( oIdentity != null )
+            if ( oIdentity != null && oAccount!=null )
             {
-                oIUserDTO = populateIdentityAndUserDTO( oIdentity );
+                oIUserDTO = populateIdentityAndUserDTO( oIdentity , oAccount);
             }
         }
         catch ( OpenamIdentityException ex )
@@ -78,7 +80,12 @@ public class OpenAmService implements IUserInfoProvider
         return oIUserDTO;
     }
 
-    private UserDTO populateIdentityAndUserDTO( Identity oIdentity )
+    /**
+     * @param oIdentity identity of user
+     * @param oAccount Account of user
+     * @return oIUserDTO populate of user
+     */
+    private UserDTO populateIdentityAndUserDTO( Identity oIdentity, Account oAccount )
     {
         UserDTO oIUserDTO = new UserDTO(  );
 
@@ -86,7 +93,7 @@ public class OpenAmService implements IUserInfoProvider
         oIUserDTO.setCity( oIdentity.getCity(  ) );
         oIUserDTO.setCityOfBirth( oIdentity.getCityOfBirth(  ) );
         oIUserDTO.setCivility( oIdentity.getCivility(  ) );
-        // oIUserDTO.setEmail( oIdentity.get );
+        oIUserDTO.setEmail( oAccount.getLogin() );
         oIUserDTO.setFirstname( oIdentity.getFirstname(  ) );
         oIUserDTO.setLastname( oIdentity.getLastname(  ) );
         oIUserDTO.setPostalCode( oIdentity.getPostalCode(  ) );
