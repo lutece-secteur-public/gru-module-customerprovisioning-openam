@@ -8,10 +8,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
-    <artifactId>module-supply-openam</artifactId>
+    <artifactId>module-grusupply-openam</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Lutece Module Supply OpenAM</name>
+    <name>Lutece Module grusupply OpenAM</name>
     
     <repositories>
         <repository>
