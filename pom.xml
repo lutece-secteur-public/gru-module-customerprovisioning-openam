@@ -49,7 +49,7 @@
         
           <dependency>
 		<groupId>fr.paris.lutece.plugins</groupId>
-		<artifactId>plugin-grusupply</artifactId>
+		<artifactId>plugin-costumerprovisionning</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
