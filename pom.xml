@@ -67,8 +67,8 @@
 		<version>1.0.2-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
+           
         
-      
     </dependencies>
 	
     <properties>
