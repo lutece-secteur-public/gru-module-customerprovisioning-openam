@@ -61,13 +61,7 @@
 		<type>lutece-plugin</type>
 	</dependency>
         
-        <dependency>
-		<groupId>fr.paris.lutece.plugins</groupId>
-		<artifactId>module-mylutece-openam</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
-		<type>lutece-plugin</type>
-	</dependency>
-           
+       
         
     </dependencies>
 	
