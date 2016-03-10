@@ -32,20 +32,22 @@
  * License 1.0
  */
 package fr.paris.lutece.plugins.supply.modules.openam.services;
-import fr.paris.lutece.plugins.costumerprovisionning.business.UserDTO;
-import fr.paris.lutece.plugins.costumerprovisionning.services.IUserInfoProvider;
+
+import fr.paris.lutece.plugins.grusupply.business.dto.UserDTO;
+import fr.paris.lutece.plugins.grusupply.service.IUserInfoProvider;
 import fr.paris.lutece.plugins.openamidentityclient.business.Account;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityException;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityService;
 import fr.paris.lutece.portal.service.util.AppLogService;
- 
+
+
 /**
  *
  * OpenAmService service link GRU SUpply and open AM
  */
 public class OpenAmService implements IUserInfoProvider
-{  
+{
     /**
      *
      * @param strguid to make request
@@ -57,6 +59,7 @@ public class OpenAmService implements IUserInfoProvider
         Identity oIdentity;
         Account oAccount;
         UserDTO oIUserDTO = null;
+
         try
         {
             oIdentity = OpenamIdentityService.getService(  ).getIdentity( strguid );
@@ -70,7 +73,7 @@ public class OpenAmService implements IUserInfoProvider
         catch ( OpenamIdentityException ex )
         {
             AppLogService.info( ex.getStackTrace(  ) );
-        }   
+        }
 
         return oIUserDTO;
     }
@@ -81,7 +84,7 @@ public class OpenAmService implements IUserInfoProvider
      * @return oIUserDTO populate of user
      */
     private UserDTO populateIdentityAndUserDTO( Identity oIdentity, Account oAccount )
-    {  
+    {
         UserDTO oIUserDTO = new UserDTO(  );
         oIUserDTO.setBirthday( oIdentity.getBirthday(  ) );
         oIUserDTO.setCity( oIdentity.getCity(  ) );
