@@ -45,7 +45,7 @@ import fr.paris.lutece.portal.service.util.AppLogService;
  * OpenAmService service link GRU SUpply and open AM
  */
 public class OpenAmService implements IUserInfoProvider
-{
+{  
     /**
      *
      * @param strguid to make request

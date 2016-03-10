@@ -1,10 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+  
     <parent>
         <artifactId>lutece-global-pom</artifactId>
         <groupId>fr.paris.lutece.tools</groupId>
         <version>3.0.3</version>
     </parent>
+   
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
@@ -13,30 +15,17 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>Lutece Module grusupply OpenAM</name>
     
-    <repositories>
-        <repository>
-            <id>luteceSnapshot</id>
-            <name>luteceSnapshot</name>
-            <url>http://dev.lutece.paris.fr/snapshot_repository</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+    
+    
+     <repositories>
         <repository>
             <id>lutece</id>
             <name>luteceRepository</name>
             <url>http://dev.lutece.paris.fr/maven_repository</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
+            <layout>default</layout>
         </repository>
-    </repositories>
+    </repositories>    
+    
 	
     <dependencies>
     	
@@ -54,19 +43,28 @@
 		<type>lutece-plugin</type>
 	</dependency>
         
-      
-	
-	<!-- 
-	
-	  <dependency>
+        <dependency>
 		<groupId>fr.paris.lutece.plugins</groupId>
 		<artifactId>plugin-openam-identity-client</artifactId>
 		<version>1.0.1-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
-	 -->
+	
+	
+  <dependency>
+		<groupId>fr.paris.lutece.plugins</groupId>
+		<artifactId>plugin-openam-identity-client</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+		<type>lutece-plugin</type>
+	</dependency>
         
-       
+         <dependency>
+		<groupId>fr.paris.lutece.plugins</groupId>
+		<artifactId>module-mylutece-openam</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+		<type>lutece-plugin</type>
+	</dependency>
+        
         
     </dependencies>
 	
