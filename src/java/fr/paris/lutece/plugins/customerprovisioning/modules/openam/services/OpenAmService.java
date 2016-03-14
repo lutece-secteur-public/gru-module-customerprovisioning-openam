@@ -47,7 +47,7 @@ import fr.paris.lutece.portal.service.util.AppLogService;/**
 public class OpenAmService implements IUserInfoProvider
 {  
   
-     /**
+     /** 
      * @param strguid to make request
      * @return UserDTO else null
      */
