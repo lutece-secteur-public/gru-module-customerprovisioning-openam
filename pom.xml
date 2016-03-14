@@ -10,11 +10,11 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
-    <artifactId>module-grusupply-openam</artifactId>
+    <artifactId>module-customerprovisioning-openam</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Lutece Module grusupply OpenAM</name>
-    
+    <name>Lutece Module customer provisioning OpenAM</name>
+       
     
     
      <repositories>
@@ -34,14 +34,8 @@
             <artifactId>lutece-core</artifactId>
             <version>[5.0.0,)</version>
             <type>lutece-core</type>
-        </dependency>
-        
-          <dependency>
-		<groupId>fr.paris.lutece.plugins</groupId>
-		<artifactId>plugin-costumerprovisionning</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<type>lutece-plugin</type>
-	</dependency>
+        </dependency>        
+     
         
         <dependency>
 		<groupId>fr.paris.lutece.plugins</groupId>
@@ -49,23 +43,28 @@
 		<version>1.0.1-SNAPSHOT</version>
 		<type>lutece-plugin</type>
 	</dependency>
-	
 
         
+           <dependency>
+		<groupId>fr.paris.lutece.plugins</groupId>
+		<artifactId>plugin-customerprovisionning</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+			<type>lutece-plugin</type>
+	</dependency>
         
     </dependencies>
 	
     <properties>
-        <componentName>Module Supply OpenAM</componentName>
+        <componentName>Module customer provisioning OpenAM</componentName>
         <jiraProjectName>GRUOPENAM</jiraProjectName>
         <jiraComponentId>12931</jiraComponentId>
     </properties>
  
 	
     <scm>
-        <connection>scm:git:https://github.com/lutece-secteur-public/gru-module-grusupply-openam.git</connection>
-        <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-module-grusupply-openam.git</developerConnection>
-        <url>https://github.com/lutece-secteur-public/gru-module-grusupply-openam.git</url>
+        <connection>scm:git:https://github.com/lutece-secteur-public/gru-module-customerprovisioning-openam.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-secteur-public/gru-module-customerprovisioning-openam.git</developerConnection>
+        <url>https://github.com/lutece-secteur-public/gru-module-customerprovisioning-openam.git</url>
       <tag>HEAD</tag>
   </scm>
     

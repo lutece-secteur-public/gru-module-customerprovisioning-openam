@@ -31,10 +31,11 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.supply.modules.openam.services;
+package fr.paris.lutece.plugins.customerprovisioning.modules.openam.services;
 
-import fr.paris.lutece.plugins.costumerprovisionning.business.UserDTO;
-import fr.paris.lutece.plugins.costumerprovisionning.services.IUserInfoProvider;
+
+import fr.paris.lutece.plugins.customerprovisionning.business.UserDTO;
+import fr.paris.lutece.plugins.customerprovisionning.services.IUserInfoProvider;
 import fr.paris.lutece.plugins.openamidentityclient.business.Account;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityException;
