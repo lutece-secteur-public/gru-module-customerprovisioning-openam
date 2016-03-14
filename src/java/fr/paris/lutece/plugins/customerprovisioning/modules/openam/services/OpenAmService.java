@@ -34,8 +34,9 @@
 package fr.paris.lutece.plugins.customerprovisioning.modules.openam.services;
 
 
-import fr.paris.lutece.plugins.customerprovisionning.business.UserDTO;
-import fr.paris.lutece.plugins.customerprovisionning.services.IUserInfoProvider;
+
+import fr.paris.lutece.plugins.customerprovisioning.business.UserDTO;
+import fr.paris.lutece.plugins.customerprovisioning.services.IUserInfoProvider;
 import fr.paris.lutece.plugins.openamidentityclient.business.Account;
 import fr.paris.lutece.plugins.openamidentityclient.business.Identity;
 import fr.paris.lutece.plugins.openamidentityclient.service.OpenamIdentityException;
