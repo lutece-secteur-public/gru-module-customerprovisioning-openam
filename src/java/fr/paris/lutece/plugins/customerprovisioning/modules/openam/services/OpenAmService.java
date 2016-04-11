@@ -97,7 +97,7 @@ public class OpenAmService implements IUserInfoProvider
         oIUserDTO.setStreet( oIdentity.getStreet(  ) );
         oIUserDTO.setTelephoneNumber( oIdentity.getTelephoneNumber(  ) );
         oIUserDTO.setUid( oIdentity.getUid(  ) );
-
+        
         return oIUserDTO;
     }
 }
